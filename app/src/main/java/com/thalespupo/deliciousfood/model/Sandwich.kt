@@ -1,10 +1,14 @@
 package com.thalespupo.deliciousfood.model
 
-import android.graphics.Bitmap
+import java.util.*
 
 data class Sandwich(val id: Int,
                     val name: String,
-                    val price: Double,
+                    @Transient var ingredients: List<Ingredient> = Collections.emptyList(),
+                    var totalPrice: Double,
                     val image: String) {
 
+    fun makePrice() {
+        totalPrice = ingredients.sumByDouble { ingredient -> ingredient.price }
+    }
 }

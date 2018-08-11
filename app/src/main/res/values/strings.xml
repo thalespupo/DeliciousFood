@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Delicious Food</string>
     <string name="title_activity_sandwich_list">SandwichListActivity</string>
+    <string name="and">and</string>
 </resources>

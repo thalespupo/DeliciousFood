@@ -34,7 +34,6 @@ class SandwichListActivity : AppCompatActivity() {
 
     fun setUpRecyclerView() {
         recyclerView.adapter = SandwichAdapter(this)
-
         recyclerView.layoutManager = LinearLayoutManager(this)
     }
 

@@ -38,6 +38,7 @@ class SandwichAdapter(
         sandwichList = list
         notifyDataSetChanged()
     }
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindView(item: Sandwich) = with(itemView) {
             Glide.with(context)
@@ -46,6 +47,18 @@ class SandwichAdapter(
 
             tvId.text = item.id.toString()
             tvName.text = item.name
+            tvPrice.text = item.totalPrice.toString()
+
+            var allIngredients = ""
+            item.ingredients.forEach { it ->
+                allIngredients += if (item.ingredients.last() == it) {
+                    "${resources.getString(R.string.and)} ${it.name}."
+                } else {
+                    "${it.name}, "
+                }
+            }
+
+            tvIngredients.text = allIngredients
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.thalespupo.deliciousfood.model
 
-class Ingredient {
-
-}
+data class Ingredient(val id: Int,
+                      val name: String,
+                      val price: Double,
+                      val image: String)
