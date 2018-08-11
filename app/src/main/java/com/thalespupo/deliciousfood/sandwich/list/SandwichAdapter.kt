@@ -8,12 +8,14 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.thalespupo.deliciousfood.R
 import com.thalespupo.deliciousfood.model.Sandwich
+import com.thalespupo.deliciousfood.util.formatIngredients
+import com.thalespupo.deliciousfood.util.loadImage
 import kotlinx.android.synthetic.main.sandwich_list_item.view.*
 import java.util.*
 
 class SandwichAdapter(
-        private val context: Context) : RecyclerView.Adapter<SandwichAdapter.ViewHolder>() {
-
+        private val context: Context,
+        private val clickListener: (Sandwich) -> Unit) : RecyclerView.Adapter<SandwichAdapter.ViewHolder>() {
 
     private var sandwichList: List<Sandwich> = Collections.emptyList()
 
@@ -31,7 +33,7 @@ class SandwichAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val sandwich = sandwichList[position]
-        holder.bindView(sandwich)
+        holder.bindView(sandwich, clickListener)
     }
 
     fun setSandwichList(list: List<Sandwich>) {
@@ -40,25 +42,17 @@ class SandwichAdapter(
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindView(item: Sandwich) = with(itemView) {
-            Glide.with(context)
-                    .load(item.image)
-                    .into(imageView)
+        fun bindView(item: Sandwich, clickListener: (Sandwich) -> Unit) = with(itemView) {
 
+            imageView.loadImage(item.image)
             tvId.text = item.id.toString()
             tvName.text = item.name
             tvPrice.text = item.totalPrice.toString()
+            tvIngredients.text = item.ingredients.formatIngredients(context)
 
-            var allIngredients = ""
-            item.ingredients.forEach { it ->
-                allIngredients += if (item.ingredients.last() == it) {
-                    "${resources.getString(R.string.and)} ${it.name}."
-                } else {
-                    "${it.name}, "
-                }
+            setOnClickListener {
+                clickListener(item)
             }
-
-            tvIngredients.text = allIngredients
         }
     }
 }

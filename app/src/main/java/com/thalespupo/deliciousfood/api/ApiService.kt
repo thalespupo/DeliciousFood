@@ -28,12 +28,12 @@ interface ApiService {
 
     @PUT("pedido/{id}")
     fun putSandwich(
-            @Path("id") sandwichId: Int)
+            @Path("id") sandwichId: Int): Call<Sandwich>
 
     @PUT("pedido/{id}")
     fun putSandwichCustomized(
             @Path("id") sandwichId: Int,
-            @Body ingredientsIds: JsonArray)
+            @Body ingredientsIds: JsonArray): Call<Sandwich>
 
     @GET("promocao")
     fun getPromos(): Call<List<Promo>>

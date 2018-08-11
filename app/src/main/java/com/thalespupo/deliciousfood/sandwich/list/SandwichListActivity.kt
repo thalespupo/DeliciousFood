@@ -2,11 +2,13 @@ package com.thalespupo.deliciousfood.sandwich.list
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.thalespupo.deliciousfood.R
 import com.thalespupo.deliciousfood.model.Sandwich
+import com.thalespupo.deliciousfood.sandwich.SandwichActivity
 import kotlinx.android.synthetic.main.activity_sandwich_list.*
 
 class SandwichListActivity : AppCompatActivity() {
@@ -33,8 +35,12 @@ class SandwichListActivity : AppCompatActivity() {
     }
 
     fun setUpRecyclerView() {
-        recyclerView.adapter = SandwichAdapter(this)
+        recyclerView.adapter = SandwichAdapter(this) { sandwichItem : Sandwich -> onSandwichClicked(sandwichItem)}
         recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
+    private fun onSandwichClicked(sandwich: Sandwich) {
+        val intent = SandwichActivity.createIntent(this, sandwich)
+        startActivity(intent)
+    }
 }
