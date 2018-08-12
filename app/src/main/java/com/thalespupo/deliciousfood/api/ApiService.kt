@@ -1,6 +1,5 @@
 package com.thalespupo.deliciousfood.api
 
-import com.google.gson.JsonArray
 import com.thalespupo.deliciousfood.model.Ingredient
 import com.thalespupo.deliciousfood.model.Order
 import com.thalespupo.deliciousfood.model.Promo
@@ -33,7 +32,7 @@ interface ApiService {
     @PUT("pedido/{id}")
     fun putSandwichCustomized(
             @Path("id") sandwichId: Int,
-            @Body ingredientsIds: JsonArray): Call<Sandwich>
+            @Body extras: RequestBodySandwichCustomized): Call<Sandwich>
 
     @GET("promocao")
     fun getPromos(): Call<List<Promo>>
@@ -41,3 +40,6 @@ interface ApiService {
     @GET("pedido")
     fun getOrders(): Call<List<Order>>
 }
+
+data class RequestBodySandwichCustomized(
+        val list_ingredients_extras: IntArray)

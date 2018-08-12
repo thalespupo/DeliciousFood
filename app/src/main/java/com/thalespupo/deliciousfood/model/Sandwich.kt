@@ -2,11 +2,10 @@ package com.thalespupo.deliciousfood.model
 
 import android.os.Parcel
 import android.os.Parcelable
-import java.util.*
 
 data class Sandwich(val id: Int,
                     val name: String,
-                    @Transient var ingredients: List<Ingredient> = Collections.emptyList(),
+                    @Transient var ingredients: MutableList<Ingredient> = mutableListOf(),
                     var totalPrice: Double,
                     val image: String) : Parcelable {
 

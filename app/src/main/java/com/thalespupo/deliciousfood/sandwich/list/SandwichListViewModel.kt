@@ -16,7 +16,6 @@ class SandwichListViewModel : ViewModel() {
     private var sandwichList: MutableLiveData<List<Sandwich>>? = null
     private var rawList: List<Sandwich> = Collections.emptyList()
     private var sandwichCount = 0
-    private var lock: Any = Any()
 
     fun getSandwiches(): MutableLiveData<List<Sandwich>> {
         if (sandwichList == null) {
@@ -54,7 +53,6 @@ class SandwichListViewModel : ViewModel() {
     private fun requestIngredientsListForSandwich(id: Int) {
         val service = ApiServiceBuilder().build()
 
-
         service.getIngredientsForSandwich(id).enqueue(object : Callback<List<Ingredient>> {
             override fun onFailure(call: Call<List<Ingredient>>?, t: Throwable?) {
                 Log.e("app", "onFailure when getIngredientsForSandwich:${t?.message}")
@@ -62,7 +60,7 @@ class SandwichListViewModel : ViewModel() {
 
             override fun onResponse(call: Call<List<Ingredient>>?, response: Response<List<Ingredient>>?) {
                 if (response?.isSuccessful!!) {
-                    rawList.first { sandwich -> sandwich.id == id }.ingredients = response.body()!!
+                    rawList.first { sandwich -> sandwich.id == id }.ingredients = (response.body() as MutableList<Ingredient>?)!!
 
                     sandwichCount--
                     if (sandwichCount == 0) {

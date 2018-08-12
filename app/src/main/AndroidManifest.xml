@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -25,6 +26,10 @@
         <activity
             android:name=".sandwich.SandwichActivity"
             android:label="@string/title_activity_sandwich"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".sandwich.cust.SandwichCustomizeActivity"
+            android:label="@string/title_activity_sandwich_customize"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

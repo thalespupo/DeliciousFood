@@ -63,15 +63,14 @@ const list_ingredients_of_sandwich = (id, res) => {
 	res.json(i)
 }
 
-const add_order = (id_sandwich, extras, res) => {
+const add_order = (id_sandwich, list_ingredients_extras, res) => {
 	if (!sandwiches[id_sandwich]) {
 		return res.status(400).send('Invalid id')
 	}
 
-	extras = extras ? JSON.parse(extras) : []
 	let [last_id] = Object.keys(orders).slice(-1)
 	let id = last_id ? parseInt(last_id) + 1 : 1
-	let order = {id, id_sandwich, extras, date: new Date().getTime()}
+	let order = {id, id_sandwich, list_ingredients_extras, date: new Date().getTime()}
 	orders[id] = order
 	res.json(order)
 }
@@ -89,4 +88,4 @@ app.get('/api/ingrediente/de/:id_sandwich', (req, res) => list_ingredients_of_sa
 app.get('/api/promocao', (req, res) => list_promos(res))
 
 app.get('/api/pedido', (req, res) => list_orders(res))
-app.put('/api/pedido/:id_sandwich', (req, res) => add_order(req.params.id_sandwich, req.body.extras, res))
+app.put('/api/pedido/:id_sandwich', (req, res) => add_order(req.params.id_sandwich, req.body.list_ingredients_extras, res))

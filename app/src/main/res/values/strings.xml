@@ -3,4 +3,6 @@
     <string name="title_activity_sandwich_list">SandwichListActivity</string>
     <string name="and">and</string>
     <string name="title_activity_sandwich">SandwichActivity</string>
+    <string name="order_put_ok">Order made</string>
+    <string name="title_activity_sandwich_customize">SandwichCustomizeActivity</string>
 </resources>

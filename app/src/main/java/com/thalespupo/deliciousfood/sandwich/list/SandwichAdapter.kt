@@ -44,7 +44,7 @@ class SandwichAdapter(
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindView(item: Sandwich, clickListener: (Sandwich) -> Unit) = with(itemView) {
 
-            imageView.loadImage(item.image)
+            imageView.loadImage(context.applicationContext, item.image)
             tvId.text = item.id.toString()
             tvName.text = item.name
             tvPrice.text = item.totalPrice.toString()
