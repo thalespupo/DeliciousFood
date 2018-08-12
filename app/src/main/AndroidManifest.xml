@@ -30,6 +30,10 @@
         <activity
             android:name=".sandwich.cust.SandwichCustomizeActivity"
             android:label="@string/title_activity_sandwich_customize"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".promo.PromoActivity"
+            android:label="@string/title_activity_promo"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

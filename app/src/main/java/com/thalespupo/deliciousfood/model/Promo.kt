@@ -1,5 +1,7 @@
 package com.thalespupo.deliciousfood.model
 
-class Promo {
+data class Promo(
+        val id: Int,
+        val name: String,
+        val description: String)
 
-}
