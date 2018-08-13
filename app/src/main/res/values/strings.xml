@@ -7,4 +7,6 @@
     <string name="title_activity_sandwich_customize">SandwichCustomizeActivity</string>
     <string name="title_activity_promo">PromoActivity</string>
     <string name="title_activity_order">OrderActivity</string>
+    <string name="promos">Promos</string>
+    <string name="orders">Orders</string>
 </resources>

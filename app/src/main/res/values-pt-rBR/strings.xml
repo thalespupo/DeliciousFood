@@ -3,4 +3,6 @@
     <string name="app_name">Comida Deliciosa</string>
     <string name="and">e</string>
     <string name="order_put_ok">Pedido feito</string>
+    <string name="promos">Promoções</string>
+    <string name="orders">Pedidos</string>
 </resources>
