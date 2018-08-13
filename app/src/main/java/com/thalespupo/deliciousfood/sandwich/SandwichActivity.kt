@@ -119,6 +119,7 @@ class SandwichActivity : AppCompatActivity() {
                         }
                     }
 
+                    sandwich.name +=" - do seu jeito"
                     sandwich.makePrice()
 
                     mutableLiveData.value = sandwich

@@ -4,7 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class Sandwich(val id: Int,
-                    val name: String,
+                    var name: String,
                     @Transient var ingredients: MutableList<Ingredient> = mutableListOf(),
                     var totalPrice: Double,
                     val image: String) : Parcelable {
