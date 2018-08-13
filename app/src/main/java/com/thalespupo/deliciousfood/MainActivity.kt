@@ -12,5 +12,6 @@ class MainActivity : AppCompatActivity() {
 
         val intent = Intent(this, SandwichListActivity::class.java)
         startActivity(intent)
+        finish()
     }
 }
