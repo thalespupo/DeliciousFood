@@ -6,4 +6,5 @@
     <string name="order_put_ok">Order made</string>
     <string name="title_activity_sandwich_customize">SandwichCustomizeActivity</string>
     <string name="title_activity_promo">PromoActivity</string>
+    <string name="title_activity_order">OrderActivity</string>
 </resources>

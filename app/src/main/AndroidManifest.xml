@@ -34,6 +34,10 @@
         <activity
             android:name=".promo.PromoActivity"
             android:label="@string/title_activity_promo"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".order.OrderActivity"
+            android:label="@string/title_activity_order"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
